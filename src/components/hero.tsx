@@ -31,9 +31,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-card/50 backdrop-blur-sm">
-              <div className="w-2 h-2 rounded-full bg-[#fcbd1c] animate-pulse" />
-              <span className="text-sm text-muted-foreground">Available for new projects</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 backdrop-blur-sm">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-sm text-green-500 font-medium tracking-wide uppercase">Available for new projects</span>
             </div>
           </motion.div>
 
