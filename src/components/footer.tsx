@@ -4,17 +4,11 @@ import { SiGithub, SiX, SiLinkedin, SiDribbble } from "react-icons/si";
 import Image from "next/image";
 import logo from "@/assets/images/DevItLHMMSquareTransparentYellow.png";
 const socialLinks = [
-  { icon: SiGithub, href: "#", label: "GitHub" },
-  { icon: SiX, href: "#", label: "X" },
-  { icon: SiLinkedin, href: "#", label: "LinkedIn" },
-  { icon: SiDribbble, href: "#", label: "Dribbble" },
+  { icon: SiGithub, href: "https://github.com/devitinternational", label: "GitHub" },
+  { icon: SiLinkedin, href: "https://www.linkedin.com/company/devitintl/", label: "LinkedIn" },
 ];
 
 const footerLinks = [
-  {
-    title: "Company",
-    links: ["About", "Careers", "Blog", "Press"],
-  },
   {
     title: "Services",
     links: ["Web Development", "Mobile Apps", "UI/UX Design", "Consulting"],
@@ -27,22 +21,22 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border/30 pt-16 pb-8" data-testid="section-footer">
+    <footer className="relative border-t border-border/30 pt-8 pb-4" data-testid="section-footer">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div className="col-span-2 md:col-span-1 flex flex-col items-center">
-            <div className="flex flex-col items-center text-center gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center h-[160px] justify-between">
+            <div className="flex flex-col items-center text-center gap-2">
               <Image
                 src={logo}
                 alt="DevIt Logo"
-                className="h-28 lg:h-40 w-auto object-contain"
+                className="h-16 lg:h-20 w-auto object-contain"
               />
               <p className="text-sm text-muted-foreground leading-relaxed max-w-[200px]">
                 Limitless Hustle, Measured Mastery.
               </p>
             </div>
 
-            <div className="flex justify-center gap-3 mt-5">
+            <div className="flex justify-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -58,9 +52,9 @@ export default function Footer() {
           </div>
 
           {footerLinks.map((group) => (
-            <div key={group.title}>
-              <h4 className="font-display font-semibold text-sm text-foreground mb-4">{group.title}</h4>
-              <ul className="space-y-2.5">
+            <div key={group.title} className="flex flex-col h-[160px]">
+              <h4 className="font-display font-semibold text-sm text-foreground mb-2">{group.title}</h4>
+              <ul className="flex flex-col justify-between flex-1 pb-1">
                 {group.links.map((link) => (
                   <li key={link}>
                     <a

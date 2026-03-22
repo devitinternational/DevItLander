@@ -128,10 +128,9 @@ export default function Portfolio() {
                     </motion.div>
                   </div>
                   <motion.div
-                    animate={{ opacity: activeIndex === i ? 1 : 0, scale: activeIndex === i ? 1 : 0.5 }}
+                    animate={{ opacity: activeIndex === i ? 1 : 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 30 }}
                   >
-                    <ArrowUpRight className="w-6 h-6 text-[#fcbd1c]" />
                   </motion.div>
                 </div>
               </motion.div>

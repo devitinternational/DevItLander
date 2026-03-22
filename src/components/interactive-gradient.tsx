@@ -93,7 +93,7 @@ export default function InteractiveGradient({
 
   return (
     <motion.div
-      className={`absolute inset-0 pointer-events-auto ${className}`}
+      className={`absolute inset-0 pointer-events-auto cursor-auto ${className}`}
       style={{
         background,
         filter: `blur(${blur}px) brightness(${brightness})`,
