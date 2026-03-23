@@ -44,21 +44,49 @@ export default function Contact() {
   const { toast } = useToast();
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+
+    const form = e.target as HTMLFormElement;
+
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      projectType: (form.elements.namedItem("projectType") as HTMLInputElement)
+        .value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+        .value,
+    };
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
       toast({
         title: "Message sent!",
         description: "We'll get back to you within 24 hours.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+      form.reset();
+    } catch {
+      toast({
+        title: "Failed to send!",
+        description: "Please try again or email us directly.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
-    <section id="contact" className="relative py-32" data-testid="section-contact">
+    <section
+      id="contact"
+      className="relative py-32"
+      data-testid="section-contact"
+    >
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
       <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-[#fcbd1c] rounded-full opacity-[0.03] blur-[120px]" />
 
@@ -69,13 +97,18 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">Get in touch</span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-contact-title">
-            Let's Build Something{" "}
-            <span className="text-gradient">Great</span>
+          <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">
+            Get in touch
+          </span>
+          <h2
+            className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight"
+            data-testid="text-contact-title"
+          >
+            Let's Build Something <span className="text-gradient">Great</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to start your next project? Drop us a message and we'll get back to you within 24 hours.
+            Ready to start your next project? Drop us a message and we'll get
+            back to you within 24 hours.
           </p>
         </motion.div>
 
@@ -86,14 +119,21 @@ export default function Contact() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <GradientCard className="bg-card/50 backdrop-blur-sm h-full" testId="card-contact-email">
+              <GradientCard
+                className="bg-card/50 backdrop-blur-sm h-full"
+                testId="card-contact-email"
+              >
                 <div className="flex items-start gap-4 p-6">
                   <div className="w-10 h-10 rounded-md bg-[#ffff00]/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-[#fcbd1c]" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Email us</h3>
-                    <p className="text-sm text-muted-foreground">tech@devitinternational.com</p>
+                    <h3 className="font-medium text-foreground mb-1">
+                      Email us
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      tech@devitinternational.com
+                    </p>
                   </div>
                 </div>
               </GradientCard>
@@ -104,15 +144,22 @@ export default function Contact() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <GradientCard className="bg-card/50 backdrop-blur-sm h-full" testId="card-contact-location">
+              <GradientCard
+                className="bg-card/50 backdrop-blur-sm h-full"
+                testId="card-contact-location"
+              >
                 <div className="flex items-start gap-4 p-6">
                   <div className="w-10 h-10 rounded-md bg-[#fcbd1c]/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-[#fcbd1c]" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Based in</h3>
+                    <h3 className="font-medium text-foreground mb-1">
+                      Based in
+                    </h3>
                     <p className="text-sm text-muted-foreground">Malaysia</p>
-                    <p className="text-xs text-muted-foreground mt-1">Working with clients worldwide</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Working with clients worldwide
+                    </p>
                   </div>
                 </div>
               </GradientCard>
@@ -124,12 +171,22 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <GradientCard className="bg-card/50 backdrop-blur-sm" testId="card-contact-form">
-              <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8" data-testid="form-contact">
+            <GradientCard
+              className="bg-card/50 backdrop-blur-sm"
+              testId="card-contact-form"
+            >
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 p-6 md:p-8"
+                data-testid="form-contact"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Name</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      Name
+                    </label>
                     <Input
+                      name="name"
                       placeholder="Your name"
                       required
                       className="bg-background/50 border-border/50"
@@ -137,8 +194,11 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Email</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      Email
+                    </label>
                     <Input
+                      name="email"
                       type="email"
                       placeholder="you@company.com"
                       required
@@ -148,16 +208,22 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Project type</label>
+                  <label className="text-sm text-muted-foreground mb-2 block">
+                    Project type
+                  </label>
                   <Input
+                    name="projectType"
                     placeholder="e.g. Web Application, Mobile App, Redesign"
                     className="bg-background/50 border-border/50"
                     data-testid="input-project-type"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Message</label>
+                  <label className="text-sm text-muted-foreground mb-2 block">
+                    Message
+                  </label>
                   <Textarea
+                    name="message"
                     placeholder="Tell us about your project..."
                     rows={5}
                     required
@@ -174,7 +240,11 @@ export default function Contact() {
                   {sending ? (
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                       className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full"
                     />
                   ) : (
@@ -192,4 +262,3 @@ export default function Contact() {
     </section>
   );
 }
-
