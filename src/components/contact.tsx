@@ -71,20 +71,58 @@ export default function Contact() {
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">Get in touch</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-contact-title">
-            Let's build something{" "}
-            <span className="text-gradient">great</span>
+            Let's Build Something{" "}
+            <span className="text-gradient">Great</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to start your next project? Drop us a message and we'll get back to you within 24 hours.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <GradientCard className="bg-card/50 backdrop-blur-sm h-full" testId="card-contact-email">
+                <div className="flex items-start gap-4 p-6">
+                  <div className="w-10 h-10 rounded-md bg-[#ffff00]/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-[#fcbd1c]" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground mb-1">Email us</h3>
+                    <p className="text-sm text-muted-foreground">tech@devitinternational.com</p>
+                  </div>
+                </div>
+              </GradientCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <GradientCard className="bg-card/50 backdrop-blur-sm h-full" testId="card-contact-location">
+                <div className="flex items-start gap-4 p-6">
+                  <div className="w-10 h-10 rounded-md bg-[#fcbd1c]/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-[#fcbd1c]" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground mb-1">Based in</h3>
+                    <p className="text-sm text-muted-foreground">Malaysia</p>
+                    <p className="text-xs text-muted-foreground mt-1">Working with clients worldwide</p>
+                  </div>
+                </div>
+              </GradientCard>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-3"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <GradientCard className="bg-card/50 backdrop-blur-sm" testId="card-contact-form">
               <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8" data-testid="form-contact">
@@ -147,51 +185,6 @@ export default function Contact() {
                   )}
                 </Button>
               </form>
-            </GradientCard>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-2 flex flex-col gap-5"
-          >
-            <GradientCard className="bg-card/50 backdrop-blur-sm" testId="card-contact-email">
-              <div className="flex items-start gap-4 p-6">
-                <div className="w-10 h-10 rounded-md bg-[#ffff00]/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-[#fcbd1c]" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">Email us</h3>
-                  <p className="text-sm text-muted-foreground">devit.international@gmail.com</p>
-                </div>
-              </div>
-            </GradientCard>
-
-            <GradientCard className="bg-card/50 backdrop-blur-sm" testId="card-contact-location">
-              <div className="flex items-start gap-4 p-6">
-                <div className="w-10 h-10 rounded-md bg-[#fcbd1c]/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-[#fcbd1c]" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">Based in</h3>
-                  <p className="text-sm text-muted-foreground">Malaysia</p>
-                  <p className="text-xs text-muted-foreground mt-1">Working with clients worldwide</p>
-                </div>
-              </div>
-            </GradientCard>
-
-            <GradientCard className="bg-card/50 border-[#fcbd1c]/10 flex-1" testId="card-contact-cta">
-              <div className="p-6">
-                <h3 className="font-display font-semibold text-lg text-foreground mb-3">Quick consultation</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                  Not sure where to start? Book a free 30-minute call and let's discuss your project.
-                </p>
-                <Button variant="outline" className="w-full group" data-testid="button-book-call">
-                  Book a call
-                  <ArrowUpRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Button>
-              </div>
             </GradientCard>
           </motion.div>
         </div>

@@ -28,7 +28,7 @@ const services = [
   },
   {
     number: "04",
-    title: "Analytics",
+    title: "SEO Analytics",
     description: "We develop data-driven strategies that unlock growth potential.",
     image: serviceAnalytics,
   },
@@ -54,14 +54,14 @@ export default function Services() {
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase" data-testid="text-services-label">What we do</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-services-title">
-            Services that <span className="text-gradient">deliver</span>
+            Services That <span className="text-gradient">Deliver</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
             From concept to deployment, we handle every aspect of your digital product with precision and care.
           </p>
         </motion.div>
 
-        <div className="hidden lg:flex gap-8 items-start">
+        <div className="hidden lg:flex gap-8 items-center">
           <div className="flex-[0_0_320px] sticky top-32 z-50">
             <div className="relative w-full aspect-[3/4] rounded-md overflow-hidden">
               <AnimatePresence mode="wait">
