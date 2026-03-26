@@ -10,26 +10,26 @@ import serviceAnalytics from "@/assets/images/service-analytics.png";
 const services = [
   {
     number: "01",
-    title: "Branding",
-    description: "We create impactful brand identities that connect with your audience.",
+    title: "Branding and Marketing",
+    description: "Brands that stick. Identities that speak.",
     image: serviceBranding,
   },
   {
     number: "02",
-    title: "Development",
-    description: "We build seamless websites and platforms that perform at scale.",
+    title: "Web Development",
+    description: "Clean code. Seamless experience.",
     image: serviceDevelopment,
   },
   {
     number: "03",
     title: "Mobile Apps",
-    description: "We craft native experiences that grow with your business needs.",
+    description: "Mobile-first, user-obsessed.",
     image: serviceApps,
   },
   {
     number: "04",
-    title: "SEO Analytics",
-    description: "We develop data-driven strategies that unlock growth potential.",
+    title: "SEO & Analytics",
+    description: "Less guessing. More knowing.",
     image: serviceAnalytics,
   },
 ];
@@ -54,10 +54,10 @@ export default function Services() {
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase" data-testid="text-services-label">What we do</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-services-title">
-            Services That <span className="text-gradient">Deliver</span>
+            From Ideas To <span className="text-[#fcbd1c] tracking-tighter">Impact</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            From concept to deployment, we handle every aspect of your digital product with precision and care.
+            Four services. One studio. Zero compromises.
           </p>
         </motion.div>
 
