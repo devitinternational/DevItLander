@@ -47,6 +47,7 @@ export default function Portfolio() {
 
   return (
     <section id="work" className="relative py-32" data-testid="section-work">
+      <div className="absolute top-0 left-0 right-0 h-px glow-line" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -56,10 +57,10 @@ export default function Portfolio() {
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">Portfolio</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-work-title">
-            Selected <span className="text-gradient">Work</span>
+            Things We've <span className="text-[#fcbd1c]">Shipped</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of projects where we pushed boundaries and delivered exceptional results.
+            A few projects we're proud of.
           </p>
         </motion.div>
 
@@ -84,7 +85,7 @@ export default function Portfolio() {
                           skewY: activeIndex === i ? -3 : 0,
                         }}
                         transition={{ type: "spring", stiffness: 200, damping: 30 }}
-                        className="font-display font-bold text-2xl xl:text-3xl text-foreground tracking-tight"
+                        className="font-display font-bold text-3xl xl:text-4xl text-foreground tracking-tight"
                       >
                         {project.title}
                       </motion.h3>
@@ -103,7 +104,7 @@ export default function Portfolio() {
                         marginTop: activeIndex === i ? 8 : 0,
                       }}
                       transition={{ type: "spring", stiffness: 200, damping: 30 }}
-                      className="text-sm text-muted-foreground max-w-md overflow-hidden"
+                      className="text-base text-muted-foreground max-w-md overflow-hidden"
                     >
                       {project.description}
                     </motion.p>
@@ -151,7 +152,7 @@ export default function Portfolio() {
                   src={projects[activeIndex].image}
                   alt={projects[activeIndex].title}
                   placeholder="blur"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   data-testid={`img-project-${activeIndex}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -182,15 +183,15 @@ export default function Portfolio() {
                 src={project.image}
                 alt={project.title}
                 placeholder="blur"
-                className="w-full h-64 object-cover"
+                className="w-full aspect-video object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <span className="text-xs font-mono text-[#fcbd1c] tracking-wider uppercase">
                   {project.category}
                 </span>
-                <h3 className="font-display font-bold text-xl text-white mt-1">{project.title}</h3>
-                <p className="text-white/60 text-sm mt-2">{project.description}</p>
+                <h3 className="font-display font-bold text-2xl text-white mt-1">{project.title}</h3>
+                <p className="text-white/80 text-base mt-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mt-3">
                   {project.tags.map((tag) => (
                     <Badge
