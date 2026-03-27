@@ -16,6 +16,7 @@ const projects = [
     description: "A real-time collaborative code editor with AI assistance, built for seamless remote coding sessions.",
     tags: ["React", "Node.js", "Socket.IO", "Render", "Docker"],
     image: codeChoreo,
+    link: "https://codechoreo.onrender.com/",
   },
   {
     title: "GatePass",
@@ -30,13 +31,15 @@ const projects = [
     description: "AI Resume Analyzer is a smart web application that allows users to upload resumes (PDF format) and get instant analysis on formatting, keyword matching, and score insights.",
     tags: ["React", "TailwindCSS", "Zustand", "Puter.js"],
     image: analyzer,
+    link: "https://ai-resume-analyzer-six-nu.vercel.app/",
   },
   {
     title: "The Cradle",
-    category: "School Website",
-    description: "Fully responsive website for a kindergarten school with location and gallery functionality",
+    category: "Montessori School Website",
+    description: "Fully responsive website for a Montessori school with location and gallery functionality",
     tags: ["React", "Node.js", "TailwindCSS"],
     image: cradle,
+    link: "https://thecradle.co.in/",
   },
 ];
 
@@ -73,7 +76,12 @@ export default function Portfolio() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 onMouseEnter={() => setActiveIndex(i)}
-                className="group cursor-pointer border-b border-border/30 last:border-b-0"
+                onClick={() => {
+                  if (project.link) {
+                    window.open(project.link, "_blank");
+                  }
+                }}
+                className={`group cursor-pointer border-b border-border/30 last:border-b-0 ${project.link ? 'hover:bg-muted/10 transition-colors' : ''}`}
                 data-testid={`card-project-${i}`}
               >
                 <div className="flex items-center justify-between gap-4 py-5 px-4">
@@ -82,10 +90,10 @@ export default function Portfolio() {
                       <motion.h3
                         animate={{
                           opacity: activeIndex === i ? 1 : 0.35,
-                          skewY: activeIndex === i ? -3 : 0,
+                          scale: activeIndex === i ? 1.04 : 1,
                         }}
-                        transition={{ type: "spring", stiffness: 200, damping: 30 }}
-                        className="font-display font-bold text-3xl xl:text-4xl text-foreground tracking-tight"
+                        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                        className="font-display font-bold text-3xl xl:text-4xl text-foreground tracking-tight origin-left"
                       >
                         {project.title}
                       </motion.h3>
@@ -132,6 +140,50 @@ export default function Portfolio() {
                     animate={{ opacity: activeIndex === i ? 1 : 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 30 }}
                   >
+                    {project.link && (
+                      <div className="relative pointer-events-none">
+                        {/* Outer glow ring */}
+                        <motion.span
+                          animate={activeIndex === i ? { scale: 1.55, opacity: 0.18 } : { scale: 1, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          className="absolute inset-0 rounded-full bg-[#fcbd1c]"
+                          aria-hidden
+                        />
+
+                        {/* Pulsing ambient glow */}
+                        <motion.span
+                          animate={{ scale: [1, 1.3, 1], opacity: [0.12, 0, 0.12] }}
+                          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                          className="absolute inset-0 rounded-full bg-[#fcbd1c]"
+                          aria-hidden
+                        />
+
+                        {/* Main button face */}
+                        <motion.div
+                          animate={activeIndex === i ? { backgroundColor: "#fcbd1c" } : { backgroundColor: "rgba(252,189,28,0.12)" }}
+                          transition={{ duration: 0.25 }}
+                          className="relative flex items-center justify-center w-12 h-12 rounded-full border border-[#fcbd1c]/60 backdrop-blur-md overflow-hidden"
+                        >
+                          <span
+                            className="absolute inset-0"
+                            style={{
+                              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(252,189,28,0.35) 1px, transparent 0)",
+                              backgroundSize: "6px 6px",
+                              opacity: activeIndex === i ? 0 : 0.6,
+                              transition: "opacity 0.25s",
+                            }}
+                            aria-hidden
+                          />
+                          <motion.span
+                            animate={activeIndex === i ? { x: 2, y: -2, color: "#000" } : { x: 0, y: 0, color: "#fcbd1c" }}
+                            transition={{ duration: 0.25 }}
+                            className="relative z-10 flex items-center justify-center"
+                          >
+                            <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
+                          </motion.span>
+                        </motion.div>
+                      </div>
+                    )}
                   </motion.div>
                 </div>
               </motion.div>
@@ -176,21 +228,25 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="relative overflow-hidden rounded-md"
+              className={`relative overflow-hidden rounded-md ${project.link ? 'cursor-pointer group' : ''}`}
+              onClick={() => project.link && window.open(project.link, "_blank")}
               data-testid={`card-project-mobile-${i}`}
             >
               <Image
                 src={project.image}
                 alt={project.title}
                 placeholder="blur"
-                className="w-full aspect-video object-cover object-top"
+                className="w-full aspect-video object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 pointer-events-none">
                 <span className="text-xs font-mono text-[#fcbd1c] tracking-wider uppercase">
                   {project.category}
                 </span>
-                <h3 className="font-display font-bold text-2xl text-white mt-1">{project.title}</h3>
+                <h3 className="font-display font-bold text-2xl text-white mt-1 flex items-center gap-2">
+                  {project.title}
+                  {project.link && <ArrowUpRight className="w-5 h-5 text-[#fcbd1c]" />}
+                </h3>
                 <p className="text-white/80 text-base mt-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mt-3">
                   {project.tags.map((tag) => (
