@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { m as motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSVGUnderline from "@/components/animated-svg-underline";
@@ -22,12 +22,20 @@ interface NavbarProps {
 export default function Navbar({ onBookDemoClick }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    
+    setScrolled(latest > 20);
+    
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
@@ -38,10 +46,14 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        initial="hidden"
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${scrolled
           ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent"
           }`}

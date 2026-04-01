@@ -5,6 +5,7 @@ import { useState } from "react";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import BookingModal from "@/components/ui/booking-modal";
+import ScrollToTop from "@/components/scroll-to-top";
 
 const Services = dynamic(() => import("@/components/services"));
 const Portfolio = dynamic(() => import("@/components/portfolio"));
@@ -26,6 +27,7 @@ export default function Home() {
       {/* <Testimonials /> */}
       <Contact onBookDemoClick={() => setBookingModalOpen(true)} />
       <Footer />
+      <ScrollToTop />
       <BookingModal
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}

@@ -80,8 +80,7 @@ export default function Hero() {
             className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
             data-testid="text-hero-description"
           >
-            DevIt is a premium development studio that transforms your vision into
-            high-performance websites and applications with cutting-edge technology.
+            Turning ideas into products people actually use.
           </motion.p>
 
           <motion.div

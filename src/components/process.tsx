@@ -8,25 +8,25 @@ const steps = [
     icon: MessageSquare,
     step: "01",
     title: "Discovery",
-    description: "We dive deep into your vision, goals, and requirements. Understanding the 'why' behind your project is where great work begins.",
+    description: "Before we build anything, we make sure we understand everything.",
   },
   {
     icon: PenTool,
     step: "02",
     title: "Design",
-    description: "Wireframes evolve into polished designs. We iterate closely with you until every detail is pixel-perfect and aligned with your brand.",
+    description: "Nothing moves forward until every detail is signed off by you.",
   },
   {
     icon: Code2,
     step: "03",
     title: "Develop",
-    description: "Clean, maintainable code powers your application. We use modern tech stacks and best practices to build products that last.",
+    description: "Clean code, no shortcuts. Built to scale and easy to maintain.",
   },
   {
     icon: Rocket,
     step: "04",
     title: "Deploy",
-    description: "Launch day is just the beginning. We handle deployment, monitoring, and ongoing optimization to ensure peak performance.",
+    description: "Launch day is just the beginning. We stay involved long after you go live.",
   },
 ];
 
@@ -47,10 +47,10 @@ export default function Process() {
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">How we work</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-process-title">
-            Our <span className="text-gradient">Process</span>
+            The <span className="text-[#fcbd1c]">Playbook</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            A proven methodology that turns complex ideas into polished products, on time and on budget.
+            No surprises. Just results.
           </p>
         </motion.div>
 

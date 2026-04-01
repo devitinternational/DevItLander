@@ -193,7 +193,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                       name="name"
                       placeholder="Your name"
                       required
-                      className="bg-background/50 border-border/50"
+                      className="bg-background/50 border-border/50 cursor-text"
                       data-testid="input-name"
                     />
                   </div>
@@ -206,7 +206,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                       type="email"
                       placeholder="you@company.com"
                       required
-                      className="bg-background/50 border-border/50"
+                      className="bg-background/50 border-border/50 cursor-text"
                       data-testid="input-email"
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                   <Input
                     name="projectType"
                     placeholder="e.g. Web Application, Mobile App, Redesign"
-                    className="bg-background/50 border-border/50"
+                    className="bg-background/50 border-border/50 cursor-text"
                     data-testid="input-project-type"
                   />
                 </div>
@@ -231,7 +231,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                     placeholder="Tell us about your project..."
                     rows={5}
                     required
-                    className="bg-background/50 border-border/50 resize-none"
+                    className="bg-background/50 border-border/50 resize-none cursor-text"
                     data-testid="input-message"
                   />
                 </div>
