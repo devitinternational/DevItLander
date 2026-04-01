@@ -98,7 +98,9 @@ function BookingForm({ onClose }: { onClose: () => void }) {
     <form onSubmit={handleSubmit} className="space-y-4 mt-2">
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-xs text-muted-foreground mb-1.5 block">Name</label>
+          <label className="text-xs text-muted-foreground mb-1.5 block">
+            Name
+          </label>
           <Input
             name="name"
             placeholder="Your name"
@@ -107,7 +109,9 @@ function BookingForm({ onClose }: { onClose: () => void }) {
           />
         </div>
         <div>
-          <label className="text-xs text-muted-foreground mb-1.5 block">Email</label>
+          <label className="text-xs text-muted-foreground mb-1.5 block">
+            Email
+          </label>
           <Input
             name="email"
             type="email"
@@ -125,9 +129,10 @@ function BookingForm({ onClose }: { onClose: () => void }) {
         <select
           name="slot"
           required
+          defaultValue=""
           className="w-full h-10 rounded-md border border-border/40 bg-background/60 px-3 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-[#fcbd1c]/50"
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Pick a time of day
           </option>
           {slots.map((s) => (
@@ -175,7 +180,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   // Close on Escape
@@ -232,13 +239,17 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   <span className="text-[#fcbd1c]">project</span>
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1.5">
-                  Book a free 30-minute call. No sales pitch — just honest advice.
+                  Book a free 30-minute call. No sales pitch — just honest
+                  advice.
                 </p>
 
                 {/* Perks row */}
                 <div className="flex gap-4 mt-4 flex-wrap">
                   {perks.map(({ icon: Icon, text }) => (
-                    <div key={text} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <div
+                      key={text}
+                      className="flex items-center gap-1.5 text-xs text-muted-foreground"
+                    >
                       <Icon className="w-3.5 h-3.5 text-[#fcbd1c]" />
                       {text}
                     </div>
@@ -250,7 +261,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
               {/* Body */}
               <div className="px-6 py-5">
-                {USE_CALENDLY ? <CalendlyEmbed /> : <BookingForm onClose={onClose} />}
+                {USE_CALENDLY ? (
+                  <CalendlyEmbed />
+                ) : (
+                  <BookingForm onClose={onClose} />
+                )}
               </div>
             </motion.div>
           </div>
