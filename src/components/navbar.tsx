@@ -15,7 +15,11 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  onBookDemoClick?: () => void;
+}
+
+export default function Navbar({ onBookDemoClick }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -102,6 +106,21 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.4 }}
+                className="hidden lg:block"
+              >
+                <Button
+                  onClick={onBookDemoClick}
+                  className="bg-transparent border border-[#fcbd1c] text-[#fcbd1c] font-semibold text-base px-6 py-2 hover:bg-[#fcbd1c] hover:text-black transition-colors"
+                  data-testid="button-book-demo"
+                >
+                  Book a Demo
+                </Button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.4 }}
                 className="hidden lg:block"
               >
@@ -155,12 +174,19 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="pt-4"
+                transition={{ delay: 0.2 }}
+                className="pt-4 space-y-3"
               >
                 <Button
+                  onClick={onBookDemoClick}
+                  className="w-full bg-transparent border border-[#fcbd1c] text-[#fcbd1c] font-semibold hover:bg-[#fcbd1c] hover:text-black transition-colors"
+                  data-testid="button-mobile-book-demo"
+                >
+                  Book a Demo
+                </Button>
+                <Button
                   onClick={() => scrollTo("#contact")}
-                  className="w-full bg-[#fcbd1c] border-0 text-black font-semibold"
+                  className="w-full bg-[#fcbd1c] text-black font-semibold"
                   data-testid="button-mobile-get-started"
                 >
                   Get Started
@@ -173,4 +199,5 @@ export default function Navbar() {
     </>
   );
 }
+  
 

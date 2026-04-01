@@ -1,6 +1,10 @@
-import dynamic from 'next/dynamic';
+"use client";
+
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
+import BookingModal from "@/components/ui/booking-modal";
 import ScrollToTop from "@/components/scroll-to-top";
 
 const Services = dynamic(() => import("@/components/services"));
@@ -11,17 +15,23 @@ const Contact = dynamic(() => import("@/components/contact"));
 const Footer = dynamic(() => import("@/components/footer"));
 
 export default function Home() {
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navbar />
+      <Navbar onBookDemoClick={() => setBookingModalOpen(true)} />
       <Hero />
       <Services />
       <Portfolio />
       <Process />
       {/* <Testimonials /> */}
-      <Contact />
+      <Contact onBookDemoClick={() => setBookingModalOpen(true)} />
       <Footer />
       <ScrollToTop />
+      <BookingModal
+        isOpen={bookingModalOpen}
+        onClose={() => setBookingModalOpen(false)}
+      />
     </div>
   );
 }

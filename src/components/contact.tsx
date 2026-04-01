@@ -1,7 +1,7 @@
 "use client";
 import { m as motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Send, Mail, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -38,7 +38,11 @@ function GradientCard({
   );
 }
 
-export default function Contact() {
+interface ContactProps {
+  onBookDemoClick?: () => void;
+}
+
+export default function Contact({ onBookDemoClick }: ContactProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
@@ -256,6 +260,27 @@ export default function Contact() {
                 </Button>
               </form>
             </GradientCard>
+          </motion.div>
+
+          {/* Book a Demo Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-muted-foreground mb-6">
+              Prefer a quick chat? Book a free 30-minute demo call with our
+              team.
+            </p>
+            <Button
+              onClick={onBookDemoClick}
+              className="bg-transparent border-2 border-[#fcbd1c] text-[#fcbd1c] font-semibold px-8 py-3 hover:bg-[#fcbd1c] hover:text-black transition-all"
+              data-testid="button-contact-book-demo"
+            >
+              <Calendar className="w-4 h-4 mr-2" />
+              Book a Free Demo Call
+            </Button>
           </motion.div>
         </div>
       </div>
