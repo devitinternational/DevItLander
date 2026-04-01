@@ -24,7 +24,6 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Process />
-      {/* <Testimonials /> */}
       <Contact onBookDemoClick={() => setBookingModalOpen(true)} />
       <Footer />
       <ScrollToTop />
