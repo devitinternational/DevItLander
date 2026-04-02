@@ -10,6 +10,7 @@ import ScrollToTop from "@/components/scroll-to-top";
 const Services = dynamic(() => import("@/components/services"));
 const Portfolio = dynamic(() => import("@/components/portfolio"));
 const Process = dynamic(() => import("@/components/process"));
+const FAQ = dynamic(() => import("@/components/ui/faq"));
 const Testimonials = dynamic(() => import("@/components/testimonials"));
 const Contact = dynamic(() => import("@/components/contact"));
 const Footer = dynamic(() => import("@/components/footer"));
@@ -24,6 +25,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Process />
+      <FAQ />
       <Contact onBookDemoClick={() => setBookingModalOpen(true)} />
       <Footer />
       <ScrollToTop />
