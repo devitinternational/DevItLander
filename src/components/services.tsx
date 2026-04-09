@@ -56,7 +56,7 @@ export default function Services() {
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-services-title">
             From Ideas To <span className="text-[#fcbd1c] tracking-tighter">Impact</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto">
             Four services. One studio. Zero compromises.
           </p>
         </motion.div>
@@ -124,7 +124,7 @@ export default function Services() {
                     {`{${service.number}}`}
                   </span>
                   <h3
-                    className={`font-display font-bold text-5xl xl:text-6xl tracking-tight transition-colors duration-300 ${activeIndex === i ? "text-foreground" : "text-muted-foreground"}`}
+                    className={`font-display font-bold text-3xl xl:text-4xl tracking-tight transition-colors duration-300 ${activeIndex === i ? "text-foreground" : "text-muted-foreground"}`}
                     data-testid={`text-service-title-${i}`}
                   >
                     {service.title}

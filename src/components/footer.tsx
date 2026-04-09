@@ -7,14 +7,14 @@ import logo from "@/assets/images/DevItLHMMSquareTransparentYellow.png";
 import { LegalDialog, type PolicyType } from "@/components/legal-dialog";
 
 const socialLinks = [
-  { icon: SiGithub, href: "https://github.com/devitinternational", label: "GitHub" },
+  { icon: SiX, href: "https://x.com/devitinternational", label: "Twitter" },
   { icon: SiLinkedin, href: "https://www.linkedin.com/company/devitintl/", label: "LinkedIn" },
 ];
 
 const footerLinks = [
   {
     title: "Services",
-    links: ["Web Development", "Mobile Apps", "UI/UX Design", "Consulting"],
+    links: ["Branding and Marketing", "Web Development", "Mobile Apps", "SEO & Analytics"],
   },
   {
     title: "Legal",
@@ -37,8 +37,8 @@ export default function Footer() {
       <footer className="relative border-t border-border/30 pt-8 pb-4" data-testid="section-footer">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-6">
-            <div className="col-span-2 md:col-span-1 flex flex-col items-center h-[160px] justify-between">
-              <div className="flex flex-col items-center text-center gap-2">
+            <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-start gap-9">
+              <div className="flex flex-col items-center text-center gap-[0.5px]">
                 <Image
                   src={logo}
                   alt="DevIt Logo"
@@ -65,9 +65,9 @@ export default function Footer() {
             </div>
 
             {footerLinks.map((group) => (
-              <div key={group.title} className="flex flex-col h-[160px]">
-                <h4 className="font-display font-semibold text-sm text-foreground mb-2">{group.title}</h4>
-                <ul className="flex flex-col justify-between flex-1 pb-1">
+              <div key={group.title} className="flex flex-col">
+                <h4 className="font-display font-semibold text-sm text-foreground mb-3">{group.title}</h4>
+                <ul className="flex flex-col justify-start gap-[18px] flex-1 pb-1">
                   {group.links.map((link) => (
                     <li key={link}>
                       <a

@@ -93,7 +93,7 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
                     strokeWidth={2.5}
                     gap={0}
                     duration={0.45}
-                    className="px-5 py-2 text-base lg:text-lg text-muted-foreground"
+                    className="px-5 py-2 text-[16px] lg:text-[18px] text-[#ECECEC]"
                     data-testid={`link-nav-${link.label.toLowerCase()}`}
                   >
                     {link.label}
@@ -114,7 +114,7 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
                   className="bg-transparent border border-[#fcbd1c] text-[#fcbd1c] font-semibold text-base px-6 py-2 hover:bg-[#fcbd1c] hover:text-black transition-colors"
                   data-testid="button-book-demo"
                 >
-                  Book a Demo
+                  Let's Talk
                 </Button>
               </motion.div>
 
@@ -182,7 +182,7 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
                   className="w-full bg-transparent border border-[#fcbd1c] text-[#fcbd1c] font-semibold hover:bg-[#fcbd1c] hover:text-black transition-colors"
                   data-testid="button-mobile-book-demo"
                 >
-                  Book a Demo
+                  Let's Talk
                 </Button>
                 <Button
                   onClick={() => scrollTo("#contact")}

@@ -25,7 +25,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Process />
-      <FAQ />
+      <FAQ onBookDemoClick={() => setBookingModalOpen(true)} />
       <Contact onBookDemoClick={() => setBookingModalOpen(true)} />
       <Footer />
       <ScrollToTop />

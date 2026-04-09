@@ -108,11 +108,10 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
             className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight"
             data-testid="text-contact-title"
           >
-            Let's Build Something <span className="text-gradient">Great</span>
+            Ready When <span className="text-[#fcbd1c]">You Are</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to start your next project? Drop us a message and we'll get
-            back to you within 24 hours.
+          <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto">
+            Drop us a message. We reply within 24 hours.
           </p>
         </motion.div>
 
@@ -279,7 +278,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
               data-testid="button-contact-book-demo"
             >
               <Calendar className="w-4 h-4 mr-2" />
-              Book a Free Demo Call
+              Get In Touch
             </Button>
           </motion.div>
         </div>

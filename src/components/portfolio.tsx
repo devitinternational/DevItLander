@@ -11,9 +11,17 @@ import cradle from "@/assets/images/cradle.png"
 
 const projects = [
   {
+    title: "The Cradle",
+    category: "Montessori School Website",
+    description: "A school that deserved a website as warm as its classrooms.",
+    tags: ["React", "Node.js", "TailwindCSS"],
+    image: cradle,
+    link: "https://thecradle.co.in/",
+  },
+  {
     title: "CodeChoreo",
     category: "Real-time Collaborative Platform",
-    description: "A real-time collaborative code editor with AI assistance, built for seamless remote coding sessions.",
+    description: "Built for teams who code together from different time zones.",
     tags: ["React", "Node.js", "Socket.IO", "Render", "Docker"],
     image: codeChoreo,
     link: "https://codechoreo.onrender.com/",
@@ -21,25 +29,17 @@ const projects = [
   {
     title: "GatePass",
     category: "Visitor Management Mobile App",
-    description: "GatePass is a Flutter-based mobile application designed for gated communities to manage visitor entry securely and efficiently.",
+    description: "Tighter security, less paperwork — visitor management on mobile.",
     tags: ["Flutter", "Firebase", "Dart"],
     image: gatePass,
   },
   {
     title: "AI Resume Analyzer",
     category: "Resume Analysis Web App",
-    description: "AI Resume Analyzer is a smart web application that allows users to upload resumes (PDF format) and get instant analysis on formatting, keyword matching, and score insights.",
+    description: "Paste your CV. Know exactly what's holding it back.",
     tags: ["React", "TailwindCSS", "Zustand", "Puter.js"],
     image: analyzer,
     link: "https://ai-resume-analyzer-six-nu.vercel.app/",
-  },
-  {
-    title: "The Cradle",
-    category: "Montessori School Website",
-    description: "Fully responsive website for a Montessori school with location and gallery functionality",
-    tags: ["React", "Node.js", "TailwindCSS"],
-    image: cradle,
-    link: "https://thecradle.co.in/",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Portfolio() {
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-work-title">
             Things We've <span className="text-[#fcbd1c]">Shipped</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto">
             A few projects we're proud of.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function Portfolio() {
               >
                 <div className="flex items-center justify-between gap-4 py-5 px-4">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-4 flex-wrap">
+                    <div className="flex flex-col items-start gap-1">
                       <motion.h3
                         animate={{
                           opacity: activeIndex === i ? 1 : 0.35,

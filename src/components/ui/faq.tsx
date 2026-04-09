@@ -6,75 +6,33 @@ import { Plus } from "lucide-react";
 const faqs = [
     {
         category: "Timelines",
-        question: "How long does it take to build a website or app?",
+        question: "How long does it take?",
         answer:
-            "Timelines vary by scope — a marketing website typically takes 1-3 weeks, while a full mobile app can take 8–16 weeks. We give you a detailed timeline before work begins, and nothing moves forward without your sign-off.",
-    },
-    {
-        category: "Pricing",
-        question: "How much does a project cost?",
-        answer:
-            "Every project is scoped individually. Pricing depends on complexity, features, and timeline. We offer transparent, fixed-price quotes — no surprise invoices mid-project.",
+            "A marketing website usually takes 1–3 weeks. A full mobile app, 8–16 weeks. You get a detailed timeline upfront, and nothing moves forward without your sign-off.",
     },
     {
         category: "Clients",
         question: "Do you work with early-stage startups or only established businesses?",
         answer:
-            "Both. We work with founders building their first product and with established brands looking to upgrade or scale. What matters is clarity of vision and commitment to the project.",
+            "Both. Some of our favourite projects started as napkin ideas. If you've got a clear problem to solve, we can help build the solution.",
     },
     {
         category: "Ownership",
         question: "Will I own the code and design after the project?",
         answer:
-            "Yes, 100%. Once the project is delivered and paid for, all code, designs, and assets belong to you entirely.",
-    },
-    {
-        category: "Redesigns",
-        question: "Can you redesign an existing website or app?",
-        answer:
-            "Absolutely. Redesigns and revamps are a significant part of what we do — whether you need a full overhaul or targeted improvements to specific sections or flows.",
-    },
-    {
-        category: "Support",
-        question: "Do you offer ongoing support and maintenance after launch?",
-        answer:
-            "Yes. We offer post-launch support and maintenance packages so your product stays updated, secure, and performant over time. We don't disappear after delivery.",
-    },
-    {
-        category: "Process",
-        question: "What's your development process like?",
-        answer:
-            "We follow a four-stage process: Discovery → Design → Develop → Deploy. Each stage has clear deliverables and client checkpoints. Nothing moves to the next stage until you approve the current one.",
-    },
-    {
-        category: "Mobile",
-        question: "Do you build for both iOS and Android?",
-        answer:
-            "Yes. We build cross-platform mobile apps that run natively on both iOS and Android, keeping costs efficient without sacrificing quality or performance.",
-    },
-    {
-        category: "Branding",
-        question: "Can you help with branding before building the product?",
-        answer:
-            "Yes. Our branding and identity service can run ahead of or alongside the build — logos, colour systems, typography, and brand guidelines that inform the entire product.",
-    },
-    {
-        category: "Growth",
-        question: "Do you also handle SEO and post-launch growth?",
-        answer:
-            "We do. Our SEO and analytics service covers technical SEO, on-page optimisation, and analytics setup so you can measure performance and make informed decisions from day one.",
-    },
-    {
-        category: "Communication",
-        question: "How do we communicate during the project?",
-        answer:
-            "You'll have a dedicated point of contact throughout. We use structured check-ins, shared project boards, and regular updates — so you're never left guessing where things stand.",
+            "Yes — fully. Once the project is paid and delivered, everything is yours. No lock-ins, no licensing fees.",
     },
     {
         category: "Location",
-        question: "Where are you based, and do you work with international clients?",
+        question: "Where are you based, and do you work with clients outside Malaysia?",
         answer:
-            "We're based in Malaysia and work with clients globally. Our team is remote-ready and experienced in managing projects across time zones.",
+            "We're based in Malaysia and work with clients worldwide. Most of our process is async-friendly, so time zones rarely get in the way.",
+    },
+    {
+        category: "Support",
+        question: "What happens after launch?",
+        answer:
+            "Launch is the beginning, not the end. We offer ongoing support and maintenance, and stay available if things need tweaking post-go-live.",
     },
 ];
 
@@ -138,7 +96,7 @@ function FAQItem({
                         id={`faq-answer-${index}`}
                     >
                         {/* Indent answer to align under question text (pill width 96px + gap 16px) */}
-                        <p className="pb-6 pl-[calc(6rem+1rem)] pr-10 text-muted-foreground leading-relaxed text-sm md:text-base font-body">
+                        <p className="pb-6 pl-[calc(6rem+1rem)] pr-10 text-foreground/80 leading-relaxed text-sm md:text-base font-body">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -151,7 +109,11 @@ function FAQItem({
     );
 }
 
-export default function FAQ() {
+interface FAQProps {
+    onBookDemoClick?: () => void;
+}
+
+export default function FAQ({ onBookDemoClick }: FAQProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -188,7 +150,7 @@ export default function FAQ() {
                     >
                         Common <span className="text-gradient">questions</span>
                     </h2>
-                    <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto font-body">
+                    <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto font-body">
                         Everything you need to know before we start building together.
                     </p>
                 </motion.div>
@@ -225,13 +187,12 @@ export default function FAQ() {
                     className="text-center text-sm text-muted-foreground mt-10"
                 >
                     Still have questions?{" "}
-                    <a
-                        href="#contact"
+                    <button
+                        onClick={onBookDemoClick}
                         className="text-[#fcbd1c] underline underline-offset-4 hover:opacity-80 transition-opacity duration-150 font-medium"
                     >
-                        Drop us a message
-                    </a>{" "}
-                    and we'll get back to you.
+                        Book a call
+                    </button>
                 </motion.p>
             </div>
         </section>
