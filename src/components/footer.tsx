@@ -65,7 +65,7 @@ export default function Footer() {
             </div>
 
             {footerLinks.map((group) => (
-              <div key={group.title} className="flex flex-col">
+              <div key={group.title} className="flex flex-col items-center text-center md:items-start md:text-left">
                 <h4 className="font-display font-semibold text-sm text-foreground mb-3">{group.title}</h4>
                 <ul className="flex flex-col justify-start gap-[18px] flex-1 pb-1">
                   {group.links.map((link) => (

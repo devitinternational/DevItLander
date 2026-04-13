@@ -148,7 +148,7 @@ export default function FAQ({ onBookDemoClick }: FAQProps) {
                         className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight"
                         data-testid="text-faq-title"
                     >
-                        Common <span className="text-gradient">questions</span>
+                        Got <span className="text-gradient">Questions?</span>
                     </h2>
                     <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto font-body">
                         Everything you need to know before we start building together.
@@ -191,7 +191,7 @@ export default function FAQ({ onBookDemoClick }: FAQProps) {
                         onClick={onBookDemoClick}
                         className="text-[#fcbd1c] underline underline-offset-4 hover:opacity-80 transition-opacity duration-150 font-medium"
                     >
-                        Book a call
+                        Send an Email
                     </button>
                 </motion.p>
             </div>
