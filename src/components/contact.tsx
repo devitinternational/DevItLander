@@ -132,7 +132,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                   </div>
                   <div>
                     <h3 className="font-medium text-foreground mb-1">
-                      Email us
+                      Reach Out
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       tech@devitinternational.com
@@ -157,7 +157,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                   </div>
                   <div>
                     <h3 className="font-medium text-foreground mb-1">
-                      Based in
+                      Based In
                     </h3>
                     <p className="text-sm text-muted-foreground">Malaysia</p>
                     <p className="text-xs text-muted-foreground mt-1">
@@ -269,7 +269,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
             className="mt-12 text-center"
           >
             <p className="text-muted-foreground mb-6">
-              Prefer a quick chat? Book a free 30-minute demo call with our
+              Prefer a quick call instead? Book a free 30-minute demo call with our
               team.
             </p>
             <Button
@@ -278,7 +278,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
               data-testid="button-contact-book-demo"
             >
               <Calendar className="w-4 h-4 mr-2" />
-              Get In Touch
+              Book A Call
             </Button>
           </motion.div>
         </div>
