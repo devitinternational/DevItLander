@@ -125,7 +125,7 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="testimonials" className="relative py-32" data-testid="section-testimonials">
+    <section id="testimonials" className="relative pt-20 pb-32" data-testid="section-testimonials">
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8" ref={ref}>

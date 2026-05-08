@@ -35,7 +35,7 @@ export default function Process() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" className="relative py-32" data-testid="section-process">
+    <section id="process" className="relative pt-20 pb-32" data-testid="section-process">
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8" ref={ref}>
@@ -49,7 +49,7 @@ export default function Process() {
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-process-title">
             The <span className="text-[#fcbd1c]">Playbook</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-6 text-lg text-[#ECECEC] max-w-2xl mx-auto">
             No surprises. Just results.
           </p>
         </motion.div>
