@@ -10,7 +10,7 @@ import serviceAnalytics from "@/assets/images/service-analytics.png";
 const services = [
   {
     number: "01",
-    title: "Branding and Marketing",
+    title: "Branding & Marketing",
     description: "Brands that stick. Identities that speak.",
     image: serviceBranding,
   },
@@ -42,7 +42,7 @@ export default function Services() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="relative py-32 overflow-hidden" data-testid="section-services">
+    <section id="services" className="relative pt-20 pb-32 overflow-hidden" data-testid="section-services">
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8" ref={ref}>

@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Work", href: "#work" },
   { label: "Process", href: "#process" },
   // { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -60,26 +61,28 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
         data-testid="navbar"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 h-20 lg:h-24">
-            <motion.a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              data-testid="link-logo"
-            >
-              <Image
-                src={logo}
-                alt="DevIt Logo"
-                className="h-28 lg:h-40 w-auto object-contain"
-              />
-            </motion.a>
+          <div className="flex items-center h-20 lg:h-24">
+            <div className="flex-1 flex justify-start">
+              <motion.a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="flex items-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                data-testid="link-logo"
+              >
+                <Image
+                  src={logo}
+                  alt="DevIt Logo"
+                  className="h-28 lg:h-40 w-auto object-contain"
+                />
+              </motion.a>
+            </div>
 
-            <div className="hidden lg:flex items-baseline gap-1">
+            <div className="hidden lg:flex shrink-0 justify-center items-baseline gap-1">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.label}
@@ -93,7 +96,7 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
                     strokeWidth={2.5}
                     gap={0}
                     duration={0.45}
-                    className="px-5 py-2 text-[16px] lg:text-[18px] text-[#ECECEC]"
+                    className="px-5 py-2 text-[16px] lg:text-[18px] text-[#ECECEC] hover:text-white transition-colors duration-300"
                     data-testid={`link-nav-${link.label.toLowerCase()}`}
                   >
                     {link.label}
@@ -102,7 +105,7 @@ export default function Navbar({ onBookDemoClick }: NavbarProps) {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex-1 flex justify-end items-center gap-3">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}

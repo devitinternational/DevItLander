@@ -77,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+            className="mt-8 text-lg md:text-xl text-[#ECECEC] max-w-2xl leading-relaxed"
             data-testid="text-hero-description"
           >
             Turning ideas into products people actually use.
