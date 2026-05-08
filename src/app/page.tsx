@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
+import { StarsBackground } from "@/components/ui/stars-background";
 import BookingModal from "@/components/ui/booking-modal";
 import ScrollToTop from "@/components/scroll-to-top";
 
@@ -21,7 +22,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar onBookDemoClick={() => setBookingModalOpen(true)} />
-      <Hero />
+      <StarsBackground>
+        <Hero />
+      </StarsBackground>
       <Services />
       <Portfolio />
       <Process />

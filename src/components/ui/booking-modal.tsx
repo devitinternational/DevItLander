@@ -98,7 +98,7 @@ function BookingForm({ onClose }: { onClose: () => void }) {
     <form onSubmit={handleSubmit} className="space-y-4 mt-2">
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-xs text-muted-foreground mb-1.5 block">
+          <label className="text-sm font-medium text-[#ECECEC] mb-1.5 block">
             Name
           </label>
           <Input
@@ -109,7 +109,7 @@ function BookingForm({ onClose }: { onClose: () => void }) {
           />
         </div>
         <div>
-          <label className="text-xs text-muted-foreground mb-1.5 block">
+          <label className="text-sm font-medium text-[#ECECEC] mb-1.5 block">
             Email
           </label>
           <Input
@@ -123,7 +123,7 @@ function BookingForm({ onClose }: { onClose: () => void }) {
       </div>
 
       <div>
-        <label className="text-xs text-muted-foreground mb-1.5 block">
+        <label className="text-sm font-medium text-[#ECECEC] mb-1.5 block">
           Preferred time slot
         </label>
         <select
@@ -144,7 +144,7 @@ function BookingForm({ onClose }: { onClose: () => void }) {
       </div>
 
       <div>
-        <label className="text-xs text-muted-foreground mb-1.5 block">
+        <label className="text-sm font-medium text-[#ECECEC] mb-1.5 block">
           What's your project about?
         </label>
         <Textarea
@@ -238,7 +238,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   Let's talk about your{" "}
                   <span className="text-[#fcbd1c]">project</span>
                 </h2>
-                <p className="text-sm text-muted-foreground mt-1.5">
+                <p className="text-sm text-[#ECECEC] mt-1.5">
                   Book a free 30-minute call. No sales pitch — just honest
                   advice.
                 </p>
@@ -248,7 +248,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   {perks.map(({ icon: Icon, text }) => (
                     <div
                       key={text}
-                      className="flex items-center gap-1.5 text-xs text-muted-foreground"
+                      className="flex items-center gap-1.5 text-xs text-[#ECECEC]"
                     >
                       <Icon className="w-3.5 h-3.5 text-[#fcbd1c]" />
                       {text}

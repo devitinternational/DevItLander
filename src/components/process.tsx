@@ -26,7 +26,7 @@ const steps = [
     icon: Rocket,
     step: "04",
     title: "Deploy",
-    description: "Launch day is just the beginning. We stay involved long after you go live.",
+    description: "Launch day is only the start. We stay involved after you go live.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function Process() {
                   <span className="absolute -top-2 -right-2 text-xs font-mono text-[#fcbd1c] bg-background px-1.5 py-0.5 rounded-md border border-border/50">{step.step}</span>
                 </div>
                 <h3 className="font-display font-semibold text-xl text-foreground mb-3">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                <p className="text-sm text-[#ECECEC] leading-relaxed">{step.description}</p>
               </div>
             </motion.div>
           ))}
