@@ -49,7 +49,7 @@ export default function Portfolio() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="work" className="relative pt-20 pb-32" data-testid="section-work">
+    <section id="work" className="relative py-32" data-testid="section-work">
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8" ref={ref}>
         <motion.div
@@ -59,9 +59,8 @@ export default function Portfolio() {
           className="text-center mb-20"
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">Portfolio</span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-work-title">
-            Things We've <br />
-            <span className="text-[#fcbd1c]">Shipped</span>
+          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-work-title">
+            Things We've <span className="text-[#fcbd1c]">Shipped</span>
           </h2>
           <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto">
             A few projects we're proud of.
@@ -248,7 +247,18 @@ export default function Portfolio() {
                   {project.title}
                   {project.link && <ArrowUpRight className="w-5 h-5 text-[#fcbd1c]" />}
                 </h3>
-
+                <p className="text-white/80 text-base mt-2">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {project.tags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant="outline"
+                      className="bg-white/10 border-white/20 text-white text-xs no-default-hover-elevate no-default-active-elevate"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

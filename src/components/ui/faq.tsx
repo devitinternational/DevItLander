@@ -53,27 +53,27 @@ function FAQItem({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.4, delay: index * 0.04 }}
-            className="group relative"
+            className="group"
             data-testid={`faq-item-${index}`}
         >
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}
-                className="w-full text-left flex justify-center md:justify-start items-center py-6 focus:outline-none relative"
+                className="w-full text-left flex items-center gap-4 py-6 focus:outline-none"
                 id={`faq-btn-${index}`}
             >
-                {/* Category pill — centered on mobile, fixed width on PC */}
+                {/* Category pill — fixed width so questions stay in one column */}
                 <span className="shrink-0 inline-flex items-center justify-center w-24 px-2 py-1 rounded-md text-[9px] font-mono tracking-widest uppercase bg-[#fcbd1c]/10 text-[#fcbd1c] border border-[#fcbd1c]/15 truncate">
                     {faq.category}
                 </span>
 
-                {/* Question (Hidden on mobile) */}
-                <span className="hidden md:block md:ml-4 flex-1 font-display font-semibold text-lg text-foreground leading-snug group-hover:text-[#fcbd1c] transition-colors duration-200">
+                {/* Question */}
+                <span className="flex-1 font-display font-semibold text-base md:text-lg text-foreground leading-snug group-hover:text-[#fcbd1c] transition-colors duration-200">
                     {faq.question}
                 </span>
 
                 {/* Toggle icon */}
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 md:static md:translate-y-0 shrink-0 md:ml-2 w-7 h-7 rounded-md border border-border/60 flex items-center justify-center transition-all duration-200 group-hover:border-[#fcbd1c]/40">
+                <span className="shrink-0 ml-2 w-7 h-7 rounded-md border border-border/60 flex items-center justify-center transition-all duration-200 group-hover:border-[#fcbd1c]/40">
                     <motion.span
                         animate={{ rotate: isOpen ? 45 : 0 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
@@ -95,16 +95,8 @@ function FAQItem({
                         className="overflow-hidden"
                         id={`faq-answer-${index}`}
                     >
-                        {/* Mobile Question Header */}
-                        <div className="md:hidden flex flex-col items-center text-center px-4 pb-4">
-                            <div className="w-full h-px bg-gradient-to-r from-transparent via-[#fcbd1c]/40 to-transparent mb-5" />
-                            <span className="font-display font-semibold text-sm text-foreground leading-snug mb-2">
-                                {faq.question}
-                            </span>
-                        </div>
-
-                        {/* Indent answer to align under question text on PC (pill width 96px + gap 16px) */}
-                        <p className="pb-6 md:pl-[calc(6rem+1rem)] md:pr-10 text-foreground/80 leading-relaxed text-sm md:text-base font-body text-center md:text-left px-4 md:px-0">
+                        {/* Indent answer to align under question text (pill width 96px + gap 16px) */}
+                        <p className="pb-6 pl-[calc(6rem+1rem)] pr-10 text-foreground/80 leading-relaxed text-sm md:text-base font-body">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -124,12 +116,12 @@ interface FAQProps {
 export default function FAQ({ onBookDemoClick }: FAQProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
     return (
-        <section id="faq" className="relative pt-20 pb-32" data-testid="section-faq">
+        <section id="faq" className="relative py-32" data-testid="section-faq">
             {/* Top glow rule */}
             <div className="absolute top-0 left-0 right-0 h-px glow-line" />
 
@@ -147,7 +139,7 @@ export default function FAQ({ onBookDemoClick }: FAQProps) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-14"
+                    className="text-center mb-20"
                 >
                     <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">
                         FAQ
@@ -170,7 +162,8 @@ export default function FAQ({ onBookDemoClick }: FAQProps) {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="relative rounded-2xl border border-border/50 bg-card/40 overflow-hidden divide-y divide-border/40 px-6 md:px-10"
                 >
-
+                    {/* Inner top glow accent */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#fcbd1c]/30 to-transparent" />
 
                     {faqs.map((faq, i) => (
                         <FAQItem

@@ -88,7 +88,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
   return (
     <section
       id="contact"
-      className="relative pt-20 pb-32"
+      className="relative py-32"
       data-testid="section-contact"
     >
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
@@ -101,7 +101,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="text-base font-mono text-[#fcbd1c] tracking-wider uppercase">
+          <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">
             Get in touch
           </span>
           <h2
@@ -134,7 +134,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                     <h3 className="font-medium text-foreground mb-1">
                       Reach Out
                     </h3>
-                    <p className="text-base text-[#ECECEC]">
+                    <p className="text-sm text-muted-foreground">
                       tech@devitinternational.com
                     </p>
                   </div>
@@ -159,8 +159,8 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                     <h3 className="font-medium text-foreground mb-1">
                       Based In
                     </h3>
-                    <p className="text-base text-[#ECECEC]">Malaysia</p>
-                    <p className="text-base text-[#ECECEC] mt-1">
+                    <p className="text-sm text-muted-foreground">Malaysia</p>
+                    <p className="text-xs text-muted-foreground mt-1">
                       Working with clients worldwide
                     </p>
                   </div>
@@ -185,7 +185,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-base text-[#ECECEC] mb-2 block">
+                    <label className="text-sm text-muted-foreground mb-2 block">
                       Name
                     </label>
                     <Input
@@ -197,7 +197,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                     />
                   </div>
                   <div>
-                    <label className="text-base text-[#ECECEC] mb-2 block">
+                    <label className="text-sm text-muted-foreground mb-2 block">
                       Email
                     </label>
                     <Input
@@ -211,7 +211,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                   </div>
                 </div>
                 <div>
-                  <label className="text-base text-[#ECECEC] mb-2 block">
+                  <label className="text-sm text-muted-foreground mb-2 block">
                     Project type
                   </label>
                   <Input
@@ -222,7 +222,7 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
                   />
                 </div>
                 <div>
-                  <label className="text-base text-[#ECECEC] mb-2 block">
+                  <label className="text-sm text-muted-foreground mb-2 block">
                     Message
                   </label>
                   <Textarea
@@ -268,8 +268,9 @@ export default function Contact({ onBookDemoClick }: ContactProps) {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-12 text-center"
           >
-            <p className="text-[#ECECEC] mb-6">
-              Prefer a quick chat?
+            <p className="text-muted-foreground mb-6">
+              Prefer a quick call instead? Book a free 30-minute demo call with our
+              team.
             </p>
             <Button
               onClick={onBookDemoClick}
