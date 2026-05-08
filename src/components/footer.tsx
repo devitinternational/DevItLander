@@ -1,22 +1,41 @@
 "use client";
 import { useState } from "react";
 import { m as motion } from "framer-motion";
-import { SiGithub, SiX, SiLinkedin, SiDribbble, SiInstagram } from "react-icons/si";
+import {
+  SiGithub,
+  SiX,
+  SiLinkedin,
+  SiDribbble,
+  SiInstagram,
+} from "react-icons/si";
 import Image from "next/image";
 import logo from "@/assets/images/DevItLHMMSquareTransparentYellow.png";
 import { LegalDialog, type PolicyType } from "@/components/legal-dialog";
 import AnimatedSVGUnderline from "@/components/animated-svg-underline";
 
 const socialLinks = [
-  { icon: SiInstagram, href: "https://instagram.com/devitintl", label: "Instagram" },
+  {
+    icon: SiInstagram,
+    href: "https://instagram.com/devitintl",
+    label: "Instagram",
+  },
   { icon: SiX, href: "https://x.com/devitintl", label: "Twitter" },
-  { icon: SiLinkedin, href: "https://www.linkedin.com/company/devitintl/", label: "LinkedIn" },
+  {
+    icon: SiLinkedin,
+    href: "https://www.linkedin.com/company/devitintl/",
+    label: "LinkedIn",
+  },
 ];
 
 const footerLinks = [
   {
     title: "Services",
-    links: ["Branding & Marketing", "Web Development", "Mobile Apps", "SEO & Analytics"],
+    links: [
+      "Branding & Marketing",
+      "Web Development",
+      "Mobile Apps",
+      "SEO & Analytics",
+    ],
   },
   {
     title: "Legal",
@@ -27,7 +46,7 @@ const footerLinks = [
 export default function Footer() {
   const [activePolicy, setActivePolicy] = useState<PolicyType>(null);
 
-  const handleLinkClick = (e: any, groupTitle: string, link: string) => {
+  const handleLinkClick = (e: any | null, groupTitle: string, link: string) => {
     if (e && e.preventDefault) e.preventDefault();
     if (groupTitle === "Legal") {
       setActivePolicy(link as PolicyType);
@@ -71,21 +90,24 @@ export default function Footer() {
             {footerLinks.map((group, index) => (
               <div
                 key={group.title}
-                className={`flex flex-col items-center text-center md:items-start md:text-left ${group.title === "Legal" ? "md:-ml-16 lg:-ml-24" : ""
-                  }`}
+                className={`flex flex-col items-center text-center md:items-start md:text-left ${
+                  group.title === "Legal" ? "md:-ml-16 lg:-ml-24" : ""
+                }`}
               >
-                <h4 className="font-display font-semibold text-lg text-foreground mb-3">{group.title}</h4>
+                <h4 className="font-display font-semibold text-lg text-foreground mb-3">
+                  {group.title}
+                </h4>
                 <ul className="flex flex-col justify-start gap-3 flex-1 pb-1">
                   {group.links.map((link) => (
                     <li key={link}>
                       <AnimatedSVGUnderline
-                        onClick={(e: any) => handleLinkClick(e, group.title, link)}
+                        onClick={() => handleLinkClick(null, group.title, link)}
                         underlineColor="#fcbd1c"
                         strokeWidth={2}
                         gap={2}
                         duration={0.45}
                         className="text-base text-[#ECECEC] hover:text-[#fcbd1c] transition-colors cursor-pointer inline-block"
-                        data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, '-')}`}
+                        data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {link}
                       </AnimatedSVGUnderline>
@@ -97,8 +119,13 @@ export default function Footer() {
           </div>
 
           <div className="border-t border-border/20 pt-4 flex justify-center items-center">
-            <p className="text-sm text-muted-foreground text-center" data-testid="text-copyright">
-              {new Date().getFullYear()} DevIt. All rights reserved. <span className="text-[#fcbd1c]/70 mx-1.5">&middot;</span> Crafted with precision in Malaysia
+            <p
+              className="text-sm text-muted-foreground text-center"
+              data-testid="text-copyright"
+            >
+              {new Date().getFullYear()} DevIt. All rights reserved.{" "}
+              <span className="text-[#fcbd1c]/70 mx-1.5">&middot;</span> Crafted
+              with precision in Malaysia
             </p>
           </div>
         </div>
@@ -111,4 +138,3 @@ export default function Footer() {
     </>
   );
 }
-
