@@ -53,8 +53,8 @@ export default function Services() {
           className="text-center mb-20"
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase" data-testid="text-services-label">What we do</span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-services-title">
-            From Ideas To <span className="text-[#fcbd1c] tracking-tighter">Impact</span>
+          <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl mt-4 tracking-tighter" data-testid="text-services-title">
+            From Ideas To <br className="sm:hidden" /> <span className="text-[#fcbd1c]">Impact</span>
           </h2>
           <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto">
             Four services. One studio. Zero compromises.
@@ -62,7 +62,7 @@ export default function Services() {
         </motion.div>
 
         <div className="hidden lg:flex gap-8 items-center">
-          <div className="flex-[0_0_320px] sticky top-32 z-50">
+          <div className="flex-[0_0_320px] sticky top-72 z-50">
             <div className="relative w-full aspect-[3/4] rounded-md overflow-hidden">
               <AnimatePresence mode="wait">
                 {activeIndex !== null && (

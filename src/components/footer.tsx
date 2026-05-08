@@ -80,6 +80,7 @@ export default function Footer() {
                     aria-label={social.label}
                     className="w-8 h-8 rounded-md bg-card border border-border/30 flex items-center justify-center text-muted-foreground hover-elevate hover:text-foreground transition-colors"
                     data-testid={`link-social-${social.label.toLowerCase()}`}
+                    suppressHydrationWarning
                   >
                     <social.icon className="w-3.5 h-3.5" />
                   </a>
@@ -91,7 +92,7 @@ export default function Footer() {
               <div
                 key={group.title}
                 className={`flex flex-col items-center text-center md:items-start md:text-left ${
-                  group.title === "Legal" ? "md:-ml-16 lg:-ml-24" : ""
+                  group.title === "Legal" ? "md:-ml-20 lg:-ml-32" : ""
                 }`}
               >
                 <h4 className="font-display font-semibold text-lg text-foreground mb-3">
@@ -120,7 +121,7 @@ export default function Footer() {
 
           <div className="border-t border-border/20 pt-4 flex justify-center items-center">
             <p
-              className="text-sm text-muted-foreground text-center"
+              className="text-[12px] sm:text-xs md:text-sm text-muted-foreground text-center whitespace-nowrap tracking-tight"
               data-testid="text-copyright"
             >
               {new Date().getFullYear()} DevIt. All rights reserved.{" "}

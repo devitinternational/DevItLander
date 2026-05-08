@@ -60,16 +60,15 @@ export default function Portfolio() {
         >
           <span className="text-sm font-mono text-[#fcbd1c] tracking-wider uppercase">Portfolio</span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 tracking-tight" data-testid="text-work-title">
-            Things We've <br />
-            <span className="text-[#fcbd1c]">Shipped</span>
+            Things We've <span className="text-[#fcbd1c]">Shipped</span>
           </h2>
           <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto">
             A few projects we're proud of.
           </p>
         </motion.div>
 
-        <div className="hidden lg:flex gap-0 items-stretch min-h-[480px]">
-          <div className="flex-[0_0_60%] flex flex-col justify-center">
+        <div className="hidden lg:flex gap-10 items-stretch min-h-[480px]">
+          <div className="flex-[0_0_65%] flex flex-col justify-center">
             {projects.map((project, i) => (
               <motion.div
                 key={project.title}
@@ -85,7 +84,7 @@ export default function Portfolio() {
                 className={`group cursor-pointer border-b border-border/30 last:border-b-0 ${project.link ? 'hover:bg-muted/10 transition-colors' : ''}`}
                 data-testid={`card-project-${i}`}
               >
-                <div className="flex items-center justify-between gap-4 py-5 px-4">
+                <div className="flex items-center justify-start gap-12 py-4 px-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col items-start gap-1">
                       <motion.h3
@@ -94,7 +93,7 @@ export default function Portfolio() {
                           scale: activeIndex === i ? 1.04 : 1,
                         }}
                         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                        className="font-display font-bold text-3xl xl:text-4xl text-foreground tracking-tight origin-left"
+                        className="font-display font-bold text-2xl xl:text-3xl text-foreground tracking-tight origin-left"
                       >
                         {project.title}
                       </motion.h3>
@@ -108,12 +107,12 @@ export default function Portfolio() {
                     </div>
                     <motion.p
                       animate={{
-                        opacity: activeIndex === i ? 0.7 : 0,
+                        opacity: activeIndex === i ? 1 : 0,
                         height: activeIndex === i ? "auto" : 0,
                         marginTop: activeIndex === i ? 8 : 0,
                       }}
                       transition={{ type: "spring", stiffness: 200, damping: 30 }}
-                      className="text-base text-muted-foreground max-w-md overflow-hidden"
+                      className="text-base text-[#ECECEC] max-w-md overflow-hidden"
                     >
                       {project.description}
                     </motion.p>
@@ -191,7 +190,7 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <div className="flex-[0_0_40%] relative overflow-hidden rounded-md">
+          <div className="flex-[0_0_35%] relative overflow-hidden rounded-md">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}

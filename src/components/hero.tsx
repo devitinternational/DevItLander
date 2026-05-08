@@ -25,74 +25,57 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-20">
         <div className="flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
+          <div className="mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 backdrop-blur-sm">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-sm text-green-500 font-medium tracking-wide uppercase">Available for new projects</span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full max-w-5xl"
-            data-testid="text-hero-title"
-          >
-            <TextPressure
-              text="We Build Digital"
-              textColor="#ffffff"
-              strokeColor="#fcbd1c"
-              minFontSize={36}
-              weight={true}
-              width={true}
-              italic={true}
-              alpha={false}
-              flex={true}
-              stroke={true}
-              scale={false}
-              className="mb-2"
-            />
-            <TextPressure
-              text="Experiences"
-              textColor="#fcbd1c"
-              strokeColor="#fcbd1c"
-              minFontSize={36}
-              weight={true}
-              width={true}
-              italic={true}
-              alpha={false}
-              flex={true}
-              stroke={true}
-              scale={false}
-            />
-          </motion.div>
+          <div className="w-full flex flex-col items-center gap-4" data-testid="text-hero-title">
+            <div className="w-full max-w-[90vw] md:max-w-3xl">
+              <TextPressure
+                text="SOFTWARE"
+                textColor="#fcbd1c"
+                strokeColor="#fcbd1c"
+                stroke={true}
+                minFontSize={16}
+                maxFontSize={110}
+                justify="center"
+                initialWeight={600}
+                disableAnimation={true}
+              />
+            </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            <div className="w-full max-w-[95vw] md:max-w-4xl -mt-2 md:mt-0">
+              <TextPressure
+                text="WITHOUT LIMITS"
+                textColor="#fcbd1c"
+                strokeColor="#fcbd1c"
+                stroke={true}
+                minFontSize={12}
+                maxFontSize={70}
+                justify="center"
+                initialWeight={600}
+                disableAnimation={true}
+              />
+            </div>
+          </div>
+
+          <p
             className="mt-8 text-lg md:text-xl text-[#ECECEC] max-w-2xl leading-relaxed"
             data-testid="text-hero-description"
           >
             Turning ideas into products people actually use.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+          <div
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none"
           >
             <Button
               size="lg"
               onClick={() => scrollTo("#contact")}
-              className="bg-[#fcbd1c] border-0 text-black font-semibold"
+              className="w-full sm:w-auto bg-[#fcbd1c] border-0 text-black font-semibold"
               data-testid="button-hero-start"
             >
               Start a project
@@ -102,16 +85,14 @@ export default function Hero() {
               size="lg"
               variant="outline"
               onClick={() => scrollTo("#work")}
+              className="w-full sm:w-auto"
               data-testid="button-hero-work"
             >
               View our work
             </Button>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+          <div
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
             {[
@@ -120,11 +101,8 @@ export default function Hero() {
               { value: "3", suffix: "+", label: "Years Experience" },
               { value: "24", suffix: "/7", label: "Support Available" },
             ].map((stat, i) => (
-              <motion.div
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.3 + i * 0.1 }}
                 className="text-center"
                 data-testid={`stat-${i}`}
               >
@@ -140,36 +118,27 @@ export default function Hero() {
                   spacing={4}
                 />
                 <div className="text-sm text-muted-foreground mt-3 font-body">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+        <div
           className="absolute left-8 top-1/2 hidden xl:flex flex-col items-center gap-3"
         >
           <Code2 className="w-4 h-4 text-muted-foreground/50" />
           <div className="w-px h-20 bg-gradient-to-b from-muted-foreground/30 to-transparent" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+        <div
           className="absolute right-8 top-1/2 hidden xl:flex flex-col items-center gap-3"
         >
           <Zap className="w-4 h-4 text-muted-foreground/50" />
           <div className="w-px h-20 bg-gradient-to-b from-muted-foreground/30 to-transparent" />
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+      <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-muted-foreground/60 tracking-widest uppercase">Scroll</span>
@@ -180,8 +149,7 @@ export default function Hero() {
         >
           <div className="w-1 h-1.5 rounded-full bg-[#fcbd1c]" />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
-

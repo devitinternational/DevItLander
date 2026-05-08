@@ -15,7 +15,11 @@ interface TextPressureProps {
   textColor?: string;
   strokeColor?: string;
   minFontSize?: number;
+  maxFontSize?: number;
   className?: string;
+  disableAnimation?: boolean;
+  justify?: "center" | "space-between";
+  initialWeight?: number;
 }
 
 export default function TextPressure({
@@ -32,7 +36,11 @@ export default function TextPressure({
   textColor = "#FFFFFF",
   strokeColor = "#fcbd1c",
   minFontSize = 24,
+  maxFontSize = 200,
   className = "",
+  disableAnimation = false,
+  justify = "space-between",
+  initialWeight = 400,
 }: TextPressureProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -52,6 +60,7 @@ export default function TextPressure({
   };
 
   useEffect(() => {
+    if (disableAnimation) return;
     const handleMouseMove = (e: MouseEvent) => {
       cursorRef.current.x = e.clientX;
       cursorRef.current.y = e.clientY;
@@ -77,13 +86,16 @@ export default function TextPressure({
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  }, [disableAnimation]);
 
   const setSize = useCallback(() => {
     if (!containerRef.current || !titleRef.current) return;
     const { width: containerW, height: containerH } = containerRef.current.getBoundingClientRect();
-    let newFontSize = containerW / (chars.length / 2);
-    newFontSize = Math.max(newFontSize, minFontSize);
+    
+    // Even more conservative scaling for Compressa VF to account for stroke
+    let newFontSize = containerW / (chars.length / 1.8); 
+    newFontSize = Math.max(minFontSize, Math.min(newFontSize, maxFontSize));
+    
     setFontSize(newFontSize);
     setScaleY(1);
     setLineHeight(1);
@@ -97,7 +109,7 @@ export default function TextPressure({
         setLineHeight(yRatio);
       }
     });
-  }, [chars.length, minFontSize, scale]);
+  }, [chars.length, minFontSize, maxFontSize, scale]);
 
   useEffect(() => {
     setSize();
@@ -106,6 +118,14 @@ export default function TextPressure({
   }, [setSize, text]);
 
   useEffect(() => {
+    if (disableAnimation) {
+      spansRef.current.forEach((span) => {
+        if (span) {
+          span.style.fontVariationSettings = `'wght' ${initialWeight}, 'wdth' 100, 'ital' 0`;
+        }
+      });
+      return;
+    }
     let rafId: number;
     const animate = () => {
       mouseRef.current.x += (cursorRef.current.x - mouseRef.current.x) / 15;
@@ -142,7 +162,7 @@ export default function TextPressure({
     };
     animate();
     return () => cancelAnimationFrame(rafId);
-  }, [width, weight, italic, alpha, chars.length]);
+  }, [width, weight, italic, alpha, chars.length, disableAnimation, initialWeight]);
 
   const dynamicClassName = [flex ? "tp-flex" : "", stroke ? "tp-stroke" : ""]
     .filter(Boolean)
@@ -162,7 +182,7 @@ export default function TextPressure({
         }
         .tp-flex {
           display: flex;
-          justify-content: space-between;
+          justify-content: ${justify};
         }
         .tp-stroke span {
           position: relative;
@@ -175,7 +195,7 @@ export default function TextPressure({
           top: 0;
           color: transparent;
           z-index: -1;
-          -webkit-text-stroke-width: 3px;
+          -webkit-text-stroke-width: 2px;
           -webkit-text-stroke-color: ${strokeColor};
         }
       `}</style>
@@ -185,7 +205,7 @@ export default function TextPressure({
         style={{
           fontFamily,
           textTransform: "uppercase",
-          fontSize,
+          fontSize: `${fontSize}px`,
           lineHeight,
           transform: `scale(1, ${scaleY})`,
           transformOrigin: "center top",
@@ -208,11 +228,10 @@ export default function TextPressure({
               color: stroke ? undefined : textColor,
             }}
           >
-            {char}
+            {char === " " ? "\u00A0" : char}
           </span>
         ))}
       </h1>
     </div>
   );
 }
-

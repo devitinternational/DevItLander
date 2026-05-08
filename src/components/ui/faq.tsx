@@ -61,6 +61,7 @@ function FAQItem({
                 aria-expanded={isOpen}
                 className="w-full text-left flex justify-center md:justify-start items-center py-6 focus:outline-none relative"
                 id={`faq-btn-${index}`}
+                suppressHydrationWarning
             >
                 {/* Category pill — centered on mobile, fixed width on PC */}
                 <span className="shrink-0 inline-flex items-center justify-center w-24 px-2 py-1 rounded-md text-[9px] font-mono tracking-widest uppercase bg-[#fcbd1c]/10 text-[#fcbd1c] border border-[#fcbd1c]/15 truncate">
@@ -98,7 +99,7 @@ function FAQItem({
                         {/* Mobile Question Header */}
                         <div className="md:hidden flex flex-col items-center text-center px-4 pb-4">
                             <div className="w-full h-px bg-gradient-to-r from-transparent via-[#fcbd1c]/40 to-transparent mb-5" />
-                            <span className="font-display font-semibold text-sm text-foreground leading-snug mb-2">
+                            <span className="font-display font-semibold text-xs text-foreground leading-tight mb-2">
                                 {faq.question}
                             </span>
                         </div>
@@ -159,7 +160,7 @@ export default function FAQ({ onBookDemoClick }: FAQProps) {
                         Got <span className="text-gradient">Questions?</span>
                     </h2>
                     <p className="mt-6 text-[16px] lg:text-[18px] text-[#ECECEC] max-w-2xl mx-auto font-body">
-                        Everything you need to know before we start building together.
+                        Start Here.
                     </p>
                 </motion.div>
 
