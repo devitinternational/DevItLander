@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type StarLayerProps = HTMLMotionProps<"div"> & {
   count: number;
@@ -85,6 +86,8 @@ export function StarsBackground({
   starColor = "rgba(255, 255, 255, 0.8)",
   ...props
 }: StarsBackgroundProps) {
+  const isMobile = useIsMobile();
+
   return (
     <div
       data-slot="stars-background"
@@ -96,13 +99,13 @@ export function StarsBackground({
     >
       <div className="absolute inset-0 pointer-events-none">
         <StarLayer
-          count={800}
+          count={isMobile ? 500 : 800}
           size={1}
           transition={{ repeat: Infinity, duration: speed, ease: "linear" }}
           starColor={starColor}
         />
         <StarLayer
-          count={300}
+          count={isMobile ? 200 : 300}
           size={1.5}
           transition={{
             repeat: Infinity,
@@ -112,7 +115,7 @@ export function StarsBackground({
           starColor={starColor}
         />
         <StarLayer
-          count={150}
+          count={isMobile ? 100 : 150}
           size={2}
           transition={{
             repeat: Infinity,
