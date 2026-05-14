@@ -26,7 +26,7 @@ const silkscreen = Silkscreen({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://devitinternational.com"), // Base URL for relative image paths
+  metadataBase: new URL("https://www.devitinternational.com"), // Base URL for relative image paths
   title: {
     default: "DevIt | Premium Web & Mobile App Development Studio",
     template: "%s | DevIt",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://devitinternational.com",
+    url: "https://www.devitinternational.com",
     title: "DevIt | Premium Web & Mobile App Development Studio",
     description: "Turning ideas into products people actually use. Premium software development studio offering web development, mobile apps, branding, and SEO.",
     siteName: "DevIt",
