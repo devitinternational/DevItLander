@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://devitinternational.com/sitemap.xml',
+    sitemap: 'https://www.devitinternational.com/sitemap.xml',
   };
 }

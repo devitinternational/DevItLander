@@ -59,6 +59,32 @@ function ListItem({ children }: { children: React.ReactNode }) {
   return <li className="pl-1 shrink-0">{children}</li>;
 }
 
+function ContactDetails() {
+  return (
+    <div className="bg-muted/30 p-4 rounded-lg mt-4 w-fit">
+      <p className="font-semibold text-foreground mb-1">DevIt International</p>
+      <p>
+        Email:{" "}
+        <a
+          href="mailto:support@devitinternational.com"
+          className="text-primary hover:underline"
+        >
+          support@devitinternational.com
+        </a>
+      </p>
+      <p>
+        Website:{" "}
+        <a
+          href="https://www.devitinternational.com"
+          className="text-primary hover:underline"
+        >
+          www.devitinternational.com
+        </a>
+      </p>
+    </div>
+  );
+}
+
 // ============================================================================
 // COOKIE POLICY TEXT
 // ============================================================================
@@ -180,11 +206,7 @@ function CookiePolicyContent() {
 
       <SectionTitle>8. Contact Us</SectionTitle>
       <SectionText>If you have any questions about how we use cookies, please contact us at:</SectionText>
-      <div className="bg-muted/30 p-4 rounded-lg mt-4 w-fit">
-        <p className="font-semibold text-foreground mb-1">DevIt International</p>
-        <p>Email: <a href="mailto:support@devitinternational.com" className="text-primary hover:underline">support@devitinternational.com</a></p>
-        <p>Website: <a href="https://devitinternational.com" className="text-primary hover:underline">devitinternational.com</a></p>
-      </div>
+      <ContactDetails />
     </div>
   );
 }
@@ -318,11 +340,7 @@ function TermsPolicyContent() {
 
       <SectionTitle>15. Contact Us</SectionTitle>
       <SectionText>If you have any questions about these Terms, please contact us at:</SectionText>
-      <div className="bg-muted/30 p-4 rounded-lg mt-4 w-fit">
-        <p className="font-semibold text-foreground mb-1">DevIt International</p>
-        <p>Email: <a href="mailto:support@devitinternational.com" className="text-primary hover:underline">support@devitinternational.com</a></p>
-        <p>Website: <a href="https://devitinternational.com" className="text-primary hover:underline">devitinternational.com</a></p>
-      </div>
+      <ContactDetails />
     </div>
   );
 }
@@ -457,11 +475,7 @@ function PrivacyPolicyContent() {
 
       <SectionTitle>12. Contact Us</SectionTitle>
       <SectionText>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:</SectionText>
-      <div className="bg-muted/30 p-4 rounded-lg mt-4 w-fit">
-        <p className="font-semibold text-foreground mb-1">DevIt International</p>
-        <p>Email: <a href="mailto:support@devitinternational.com" className="text-primary hover:underline">support@devitinternational.com</a></p>
-        <p>Website: <a href="https://devitinternational.com" className="text-primary hover:underline">devitinternational.com</a></p>
-      </div>
+      <ContactDetails />
     </div>
   );
 }
